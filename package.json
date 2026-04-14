@@ -7,7 +7,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "@sveltejs/adapter-auto": "^7.0.1",
     "@sveltejs/kit": "^2.57.1",
     "svelte": "^5.55.3",
-    "vite": "^8.0.8"
+    "vite": "^8.0.8",
+    "vitest": "^4.1.4"
   }
 }
