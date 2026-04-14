@@ -1,0 +1,17 @@
+# Editor / agent
+.opencode
+
+# Dependencies
+node_modules/
+
+# SvelteKit build artifacts
+.svelte-kit/
+build/
+
+# Runtime database (not for VCS)
+todos.db
+
+# Environment files
+.env
+.env.*
+!.env.example
