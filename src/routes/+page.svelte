@@ -1,10 +1,14 @@
+<script>
+  let { data } = $props();
+</script>
+
 <div class="container">
   <h1>Todo App</h1>
 
-  <form method="POST" action="?/addTodo" class="input-group">
+  <form method="POST" action="?/create" class="input-group">
     <input
       type="text"
-      name="text"
+      name="title"
       placeholder="Add a new todo..."
       required
     />
@@ -16,13 +20,13 @@
   {:else}
     <ul class="todos-list">
       {#each data.todos as todo (todo.id)}
-        <li class="todo-item {todo.done ? 'completed' : ''}">
-          <form method="POST" action="?/toggleTodo" class="toggle-form">
+        <li class="todo-item {todo.completed ? 'completed' : ''}">
+          <form method="POST" action="?/toggle" class="toggle-form">
             <input type="hidden" name="id" value={todo.id} />
             <button type="submit" class="toggle-btn" title="Toggle completion">✓</button>
           </form>
-          <span class="todo-title">{todo.text}</span>
-          <form method="POST" action="?/deleteTodo" class="delete-form">
+          <span class="todo-title">{todo.title}</span>
+          <form method="POST" action="?/delete" class="delete-form">
             <input type="hidden" name="id" value={todo.id} />
             <button type="submit" class="delete-btn" title="Delete todo">✗</button>
           </form>
