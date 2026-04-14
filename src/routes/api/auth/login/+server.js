@@ -2,7 +2,41 @@ import { loginUser } from '$lib/server/auth/service.js';
 
 export async function POST({ request }) {
   try {
-    const { email, password } = await request.json();
+    let email, password;
+    try {
+      const body = await request.json();
+      email = body.email;
+      password = body.password;
+    } catch (parseError) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Invalid JSON request body'
+        }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+    }
+
+    if (!email || !password) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Email and password fields are required'
+        }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+    }
+
     const result = await loginUser(email, password);
 
     return new Response(
