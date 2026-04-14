@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/titipakorn/to-do-list-app#readme",
   "dependencies": {
-    "better-sqlite3": "^12.9.0"
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.9.0",
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^7.0.1",
